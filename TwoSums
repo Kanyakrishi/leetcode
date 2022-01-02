@@ -1,6 +1,56 @@
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+def twoSum(nums, target):
+    flag = 0
+    if not flag:
         for num1 in range(0, len(nums) - 1):
             for num2 in range(num1 + 1, len(nums)):
-                if (nums[num1] + nums[num2]) == target:
-                    return list([num1, num2])
+                if nums[num1] + nums[num2] == target:
+                    print(list([num1, num2]))
+                    flag = 1
+
+twoSum([3,2,4], 6)
+
+
+def rotate(arr, n):
+    t = arr[-1]
+    for i in range(n-1,1):
+        arr[i] = arr[i-1]
+        i -= 1
+    arr[0] = t
+
+
+# {
+#  Driver Code Starts
+# Initial Template for Python 3
+a = [1, 2, 3, 4, 5]
+rotate(a, 5)
+print(*a)
+
+nums = [1,2,3,4,1]
+if len(set(nums)) == len(nums):
+    print("False")
+
+nums1 = [-1,0,0,3,3,3,0,0,0]
+n = 6
+nums2 = [1,2,2]
+m = 3
+merge_array = nums1[0:n] + nums2
+merge_array.sort()
+print(merge_array)
+for i in range(0, m+n):
+    nums1[i] = merge_array[i]
+print(nums1)
+
+s = 'MCMXCIV'
+# s = 'IV'
+ref = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000,
+       'f': 4, 'n': 9, 'F': 40, 'N': 90, 'k': 400, 'l': 900}
+s = s.replace('IV', 'f')
+s = s.replace('IX', 'n')
+s = s.replace('XL', 'F')
+s = s.replace('XC', 'N')
+s = s.replace('CD', 'k')
+s = s.replace('CM', 'l')
+final_sum = 0
+for i in list(s):
+    final_sum += ref[i]
+print(final_sum)
